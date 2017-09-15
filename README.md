@@ -7,4 +7,7 @@ https://www.aliexpress.com/item/POWGE-1pcs-Steel-18-Teeth-HTD-3M-Timing-Pulley-B
 ## Models
 `pulley_wheel` - HTD 3m-12 80T pulley to be mount on wheel
 
+`pulley_motor_mount` - WIP - support to be mount with 80t pulley on other side of wheel
+
 `pulley_motor` - HTD 3m-12 18T pulley to be mount on motor
+
