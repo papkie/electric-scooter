@@ -1,18 +1,18 @@
 teeth = 80; // Number of teeth, standard Mendel T5 belt = 8, gives Outside Diameter of 11.88mm
 
-motor_shaft = 8; // NEMA17 motor shaft exact diameter = 5
+motor_shaft = 8.5; // NEMA17 motor shaft exact diameter = 5
 m3_dia = 3.2; // 3mm hole diameter
 m3_nut_hex = 1; // 1 for hex, 0 for square nut
 m3_nut_flats = 5.7; // normal M3 hex nut exact width = 5.5
 m3_nut_depth = 2.7; // normal M3 hex nut exact depth = 2.4, nyloc = 4
 
-retainer = 0; // Belt retainer above teeth, 0 = No, 1 = Yes
+retainer = 1; // Belt retainer above teeth, 0 = No, 1 = Yes
 retainer_ht = 1.5; // height of retainer flange over pulley, standard = 1.5
-idler = 0; // Belt retainer below teeth, 0 = No, 1 = Yes
+idler = 1; // Belt retainer below teeth, 0 = No, 1 = Yes
 idler_ht = 1.5; // height of idler flange over pulley, standard = 1.5
 
 pulley_t_ht = 12; // length of toothed part of pulley, standard = 12
-pulley_b_ht = 0; // pulley base height, standard = 8. Set to same as idler_ht if you want an idler but no pulley.
+pulley_b_ht = 1.5; // pulley base height, standard = 8. Set to same as idler_ht if you want an idler but no pulley.
 pulley_b_dia = 20; // pulley base diameter, standard = 20
 no_of_nuts = 1; // number of captive nuts required, standard = 1
 nut_angle = 90; // angle between nuts, standard = 90
@@ -29,24 +29,28 @@ m3_nut_points = 2 * ((m3_nut_flats / 2) / cos(30)); // This is needed for the nu
 // m5_nut
 m5_nut_number=5;
 m5_diameter=5;
-m5_distance=25;
+m5_distance=30;
 m5_nut_diameter=8;
 m5_nut_depth=2;
 
 HTD_3mm_pulley_dia = tooth_spacing(3, 0.381);
-translate([0, 0, pulley_t_ht+2])
-rotate([0,180,0])
 difference() {
   pulley("HTD 3mm", HTD_3mm_pulley_dia, 1.289, 2.27);
   for(i=[1:m5_nut_number]) {
     union() {
-      translate([m5_distance*cos(i*(360/m5_nut_number)), m5_distance*sin(i*(360/m5_nut_number)), m5_nut_depth])
+      translate([m5_distance*cos(i*(360/m5_nut_number)), m5_distance*sin(i*(360/m5_nut_number)), 0])
         rotate([0, 0, 360/m5_nut_number])
         cylinder(r = m5_nut_diameter / 2, h = m5_nut_depth, center = true, $fn = 6);
 
       translate([m5_distance*cos(i*(360/m5_nut_number)), m5_distance*sin(i*(360/m5_nut_number)), 0])
-        cylinder(r = m5_diameter/2, h=pulley_t_ht+16, center = true);
+        cylinder(r = m5_diameter/2, h=pulley_t_ht+19, center = true);
     }
+  }
+  // 608rs
+  translate([0,0,pulley_t_ht + 0.6]) cylinder(r=35/2, h=5, center = true);
+  translate([0,0,pulley_t_ht - 5.3]) difference() {
+    cylinder(r=11.2, h=14, center = true, $fn=360);
+    translate([0,0,0.1]) cylinder(r=4, h=14.2, center = true, $fn=360);
   }
 }
 

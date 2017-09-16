@@ -1,5 +1,5 @@
 supports=5;
-m5_distance=30;
+m5_distance=25;
 base_height=5;
 support_height=36;
 
@@ -17,7 +17,7 @@ difference() {
         translate([0, 0, base_height/2]) cylinder(r=m5_distance+10, h=base_height, center=true, $fn=128);
         for (i=[0:(360/supports):360]) {
             translate([0, 0, (support_height/2)+base_height]) {
-                rotate([0,0,i-10]) translate([15,0,0]) pie_slice(r=25,h=support_height,a=50);
+                rotate([0,0,i-10]) translate([15,0,0]) pie_slice(r=20,h=support_height,a=50);
             }
         }
     }
@@ -31,5 +31,5 @@ difference() {
         }
     }
 
-    translate([0, 0, (base_height+support_height)/2]) cylinder(r=25, h=base_height+support_height+0.1, center=true);
+    translate([0, 0, (base_height+support_height)/2]) cylinder(r=20, h=base_height+support_height+0.1, center=true);
 }
