@@ -1,7 +1,7 @@
 supports=5;
 m5_distance=30;
 base_height=5;
-support_height=36;
+support_height=32;
 
 module pie_slice(r=3.0, h=10, a=30) {
   $fn=128;
