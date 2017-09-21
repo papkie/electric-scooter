@@ -10,7 +10,9 @@ https://www.aliexpress.com/item/POWGE-1pcs-Steel-18-Teeth-HTD-3M-Timing-Pulley-B
 
 `pulley_wheel` - HTD 3m-12 80T pulley to be mount on wheel
 
-`pulley_wheel_mount` - WIP - support to be mount with 80t pulley on other side of wheel
+`pulley_wheel_mount` - support to be mount with 80t pulley on other side of wheel
+
+`motor_holder` - WIP - holder for motor to be mount on scooter
 
 ## Only STLs
 
