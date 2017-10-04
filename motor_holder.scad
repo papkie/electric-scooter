@@ -11,16 +11,17 @@ additional_height=3;
 
 difference() {
     union() {
-        cylinder(d=width, h=height, $fn=128);
+        cylinder(d=width, h=height+additional_height, $fn=128);
         linear_extrude(height=height+additional_height)
-            polygon(points=[[0,-width/2], [length,(-top_width/2)], [length,(top_width/2)] , [0,width/2]]);
+            polygon(points=[[0,-width/2], [length-60,(-top_width/2)-25], [length-15,(-top_width/2)-30], [length,(top_width/2)] , [0,width/2]]);
     }
 
     translate([0,0,-0.1]) cylinder(d=9, h=height+additional_height+0.2, $fn=128);
     
     translate([35,0,-0.1]) cylinder(d=8, h=height+additional_height+0.2, $fn=128);
+    translate([70,0,-0.1]) cylinder(d=8, h=height+additional_height+0.2, $fn=128);
 
-    translate([75,0,-0.1]) rotate([0,0,0]) union() {
+    rotate([0,0,-27.5]) translate([75,0,-0.1]) rotate([0,0,0]) union() {
         cylinder(d=32, h=height+additional_height+0.2, $fn=128);
         for (i=[0:120:360]) {
             rotate([0,0,i]) translate([21, 0, 0]) union() {
@@ -30,7 +31,7 @@ difference() {
         }
     }
     
-    translate([-0.1,0,(top_width)+height]) rotate([0,90,0]) cylinder(d=top_width*2, h=length+0.2, $fn=128);
+    translate([-30.1,0,(top_width)+height]) rotate([0,90,0]) cylinder(d=top_width*2, h=length+30.2, $fn=128);
     
     
 }
