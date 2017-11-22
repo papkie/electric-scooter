@@ -47,7 +47,7 @@ difference() {
     }
   }
   // 608rs
-  translate([0,0,pulley_t_ht + 0.6]) cylinder(r=35/2, h=5, center = true);
+  translate([0,0,pulley_t_ht - 0.6]) cylinder(r=50/2, h=8, center = true);
   translate([0,0,pulley_t_ht - 5.3]) difference() {
     cylinder(r=11.2, h=14, center = true, $fn=360);
     translate([0,0,0.1]) cylinder(r=4, h=14.2, center = true, $fn=360);
