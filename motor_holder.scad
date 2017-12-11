@@ -4,8 +4,8 @@
 //min szerokosc 6mm
 //max szertokosc 16mm
 width=34; //koncowka od strony kola
-length=105;
-top_width=60;
+length=95;
+top_width=80;
 height=4;
 additional_height=3;
 
@@ -21,7 +21,7 @@ difference() {
     translate([35,0,-0.1]) cylinder(d=8, h=height+additional_height+0.2, $fn=128);
     translate([70,0,-0.1]) cylinder(d=8, h=height+additional_height+0.2, $fn=128);
 
-    rotate([0,0,-27.5]) translate([75,0,-0.1]) rotate([0,0,0]) union() {
+    rotate([0,0,-40]) translate([75,0,-0.1]) rotate([0,0,0]) union() {
         cylinder(d=32, h=height+additional_height+0.2, $fn=128);
         for (i=[0:120:360]) {
             rotate([0,0,i]) translate([21, 0, 0]) union() {
